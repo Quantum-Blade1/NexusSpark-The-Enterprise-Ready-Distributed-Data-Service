@@ -1,0 +1,13 @@
+## For backend:
+cd spark_service
+(Create virtual environment if needed and activate it)
+pip install -r requirements.txt
+python app.py
+
+## For frontend:
+cd spark_frontend
+npm i
+npm start
+
+## Have fun:
+Open the link on various other systems in the organizational subnet and have fun!

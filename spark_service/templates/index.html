@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark as a Service</title>
+</head>
+<body>
+    <h1>Spark as a Service: Upload CSV File</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv">
+        <input type="submit" value="Upload">
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    {% if download_link %}
+    <h2>Download Result</h2>
+    <a href="{{ url_for('download_file', filename='result.csv') }}">Download result.csv</a>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+# Use a Python base image
+FROM python:3.11-slim
+
+# Install Java (Required for PySpark)
+RUN apt-get update && apt-get install -y default-jre procps && apt-get clean
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements and install
+COPY requirements.txt.
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the app folder into the container
+COPY..
+
+# Expose the API port
+EXPOSE 8000
+
+# Start the FastAPI server
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

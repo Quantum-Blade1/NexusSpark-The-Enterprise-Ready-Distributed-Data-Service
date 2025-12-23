@@ -1,0 +1,14 @@
+--- Python and IDEs ---
+pycache/ *.py[cod] *$py.class .venv/ venv/ env/ .env .vscode/ .idea/
+
+--- Large Data and Temporary Files ---
+Never push raw data or processed results to Git
+uploads/ results/ data/ *.csv *.enc *.parquet *.json
+
+--- Spark and Log Files ---
+Spark generates many temporary metadata and log files
+derby.log metastore_db/ spark-warehouse/ *.log checkpoint/
+
+--- Docker ---
+Ignore local Docker state but keep the Dockerfiles
+.docker/
